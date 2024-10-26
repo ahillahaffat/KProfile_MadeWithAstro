@@ -1,0 +1,91 @@
+---
+const webSkills = [
+  { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "React.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Vue.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+  { name: "Astro.js", logo: "https://your-astro-logo-url.svg" },
+  { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
+  { name: "SCSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" },
+  { name: "Chakra UI", logo: "https://your-chakra-ui-logo-url.svg" },
+  { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Express", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+  { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "Prisma", logo: "https://your-prisma-logo-url.svg" },
+  { name: "Oracle", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" },
+  { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" }
+];
+
+const mobileSkills = [
+  { name: "Flutter", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+  { name: "Dart", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" }
+];
+
+const mlSkills = [
+  { name: "Google Colab", logo: "https://your-google-colab-logo-url.svg" },
+  { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" }
+];
+
+const testingSkills = [
+  { name: "Postman", logo: "https://your-postman-logo-url.svg" }
+];
+---
+
+<section class="px-8 py-16 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-12">Skills</h2>
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    
+    <!-- Web Development Skills -->
+    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+      <h3 class="text-xl font-semibold mb-4 text-gray-800">Web Development</h3>
+      <ul class="grid grid-cols-3 gap-4">
+        {webSkills.map(skill => (
+          <li class="flex flex-col items-center space-y-2">
+            <img src={skill.logo} alt={skill.name} class="w-12 h-12 object-contain" />
+            <span class="text-gray-600 text-sm font-medium">{skill.name}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Mobile Development Skills -->
+    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+      <h3 class="text-xl font-semibold mb-4 text-gray-800">Mobile Development</h3>
+      <ul class="grid grid-cols-2 gap-4">
+        {mobileSkills.map(skill => (
+          <li class="flex flex-col items-center space-y-2">
+            <img src={skill.logo} alt={skill.name} class="w-12 h-12 object-contain" />
+            <span class="text-gray-600 text-sm font-medium">{skill.name}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+      <h3 class="text-xl font-semibold mb-4 text-gray-800">Machine Learning</h3>
+      <ul class="grid grid-cols-2 gap-4">
+        {mlSkills.map(skill => (
+          <li class="flex flex-col items-center space-y-2">
+            <img src={skill.logo} alt={skill.name} class="w-12 h-12 object-contain" />
+            <span class="text-gray-600 text-sm font-medium">{skill.name}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+      <h3 class="text-xl font-semibold mb-4 text-gray-800">Testing</h3>
+      <ul class="flex flex-col items-center space-y-2">
+        {testingSkills.map(skill => (
+          <li class="flex flex-col items-center space-y-2">
+            <img src={skill.logo} alt={skill.name} class="w-12 h-12 object-contain" />
+            <span class="text-gray-600 text-sm font-medium">{skill.name}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</section>

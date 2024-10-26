@@ -1,52 +1,50 @@
 ---
-import { designwork } from "../../data/designwork.json";
-import { devwork } from "../../data/devwork.json";
+import { designwork } from "../../data/development.json";
+import { devwork } from "../../data/education.json";
 ---
-
-<section class="scroll-mt-24" id="services">
+<section class="scroll-mt-20" id="faq">
   <div class="px-8 md:px-12 py-12 max-w-2xl mx-auto">
-    <div
-      class="col-span-full lg:col-span-2 w-full rounded-4xl h-full items-center inline-flex text-black"
-    >
-      <h2 class="text-3xl tracking-tighter font-light">
-        What's on tap.
-      </h2>
+    <div class="col-span-full lg:col-span-2 w-full rounded-4xl h-full items-center inline-flex text-black">
+      <h2 class="text-3xl tracking-tighter font-light">On My Journey.</h2>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-px mt-8">
-      <div class="p-8 bg-white rounded-3xl">
-        <div class="inline-flex items-center border-b w-full border-white/10">
-          <p class="text-2xl text-black">Design</p>
+
+    <!-- Grid dengan jarak antar elemen -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8"> <!-- Mengubah gap-px menjadi gap-8 -->
+      
+      <!-- Development Section -->
+      <div class="p-8 bg-white rounded-3xl"> <!-- Menambah shadow untuk tampilan elegan -->
+        <div class="inline-flex items-center border-b w-full border-gray-200 pb-4">
+          <p class="text-2xl text-black">Development</p>
         </div>
-        <div class="divide-y divide-white/10 mt-4">
+        <div class="divide-y divide-gray-200 mt-6 space-y-4"> 
           {
             designwork.map((template) => (
-              <>
-                <div class=" flex flex-col sm:flex-row justify-between gap-4 lg:items-end">
-                  <p class="font-medium leading-6 text-zinc-500 text-sm flex gap-2 items-center">
-                    ⏤
-                    {template.title}
-                  </p>
-                </div>
-              </>
+              <div class="flex flex-col sm:flex-row justify-between gap-4 lg:items-end">
+                <p class="font-medium leading-6 text-zinc-500 text-sm flex gap-2 items-center">
+                  ⏤ {template.title}
+                </p>
+              </div>
             ))
           }
         </div>
       </div>
-      <div class="p-8 bg-white rounded-3xl">
-        <div class="inline-flex items-center border-b w-full border-white/10">
-          <p class="text-2xl text-black">Development</p>
+      
+      <!-- Education Section -->
+      <div class="p-8 bg-white rounded-3xl"> <!-- Menambah shadow untuk tampilan elegan -->
+        <div class="inline-flex items-center border-b w-full border-gray-200 pb-4">
+          <p class="text-2xl text-black">Education</p>
         </div>
-        <div class="divide-y divide-white/10 mt-4">
+        <div class="divide-y divide-gray-200 mt-6 space-y-4"> <!-- Menambah space-y-4 untuk jarak antar elemen -->
           {
             devwork.map((template) => (
-              <>
-                <div class=" flex flex-col sm:flex-row justify-between gap-4 lg:items-end">
-                  <p class="font-medium leading-6 text-zinc-500 text-sm flex gap-2 items-center">
-                    ⏤
-                    {template.title}
+              <div class="text-zinc-700">
+                <p class="text-lg font-semibold">{template.title}</p>
+                <div class="flex flex-col sm:flex-row justify-between gap-4 lg:items-end">
+                  <p class="font-medium leading-6 text-zinc-500 text-sm flex pt-5 gap-2 items-center">
+                    ⏤ {template.degree}
                   </p>
                 </div>
-              </>
+              </div>
             ))
           }
         </div>
