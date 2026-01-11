@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "github-calendar/dist/github-calendar.css";
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 @plugin "tailwind-scrollbar-hide";
@@ -8,11 +9,116 @@
 
 :root {
   font-family: Inter, sans-serif;
-
 }
+
 @supports (font-variation-settings: normal) {
-  /* Use variable font if supported */
   :root {
     font-family: InterVariable, sans-serif;
   }
+}
+
+/* Custom GitHub Calendar Styling */
+#github-calendar .calendar {
+  font-family: Inter, sans-serif !important;
+  border: none !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border-radius: 16px !important;
+  padding: 32px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+#github-calendar .calendar-graph text {
+  font-size: 11px !important;
+  fill: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+#github-calendar .contrib-column {
+  margin: 0 3px !important;
+}
+
+#github-calendar rect.day {
+  rx: 4 !important;
+  ry: 4 !important;
+  stroke: rgba(255, 255, 255, 0.3) !important;
+  stroke-width: 2px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+#github-calendar rect.day:hover {
+  stroke: #fbbf24 !important;
+  stroke-width: 3px !important;
+  transform: scale(1.2) !important;
+  filter: brightness(1.2) !important;
+}
+
+/* Custom vibrant color levels */
+#github-calendar rect.day[data-level="0"] {
+  fill: rgba(255, 255, 255, 0.1) !important;
+}
+
+#github-calendar rect.day[data-level="1"] {
+  fill: #34d399 !important;
+}
+
+#github-calendar rect.day[data-level="2"] {
+  fill: #10b981 !important;
+}
+
+#github-calendar rect.day[data-level="3"] {
+  fill: #059669 !important;
+}
+
+#github-calendar rect.day[data-level="4"] {
+  fill: #047857 !important;
+}
+
+#github-calendar .calendar .width-full > .float-left {
+  display: none !important;
+}
+
+#github-calendar .calendar-graph {
+  padding: 20px 0 !important;
+}
+
+#github-calendar .contrib-legend {
+  margin-top: 20px !important;
+}
+
+#github-calendar .contrib-legend text {
+  font-size: 11px !important;
+  fill: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500 !important;
+}
+
+#github-calendar {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+#github-calendar::-webkit-scrollbar {
+  height: 8px;
+}
+
+#github-calendar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+#github-calendar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+#github-calendar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#github-calendar h2 {
+  color: white !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  margin-bottom: 16px !important;
 }

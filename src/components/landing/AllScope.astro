@@ -8,11 +8,9 @@ import { devwork } from "../../data/education.json";
       <h2 class="text-3xl tracking-tighter font-light">On My Journey.</h2>
     </div>
 
-    <!-- Grid dengan jarak antar elemen -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8"> <!-- Mengubah gap-px menjadi gap-8 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
       
-      <!-- Development Section -->
-      <div class="p-8 bg-white rounded-3xl"> <!-- Menambah shadow untuk tampilan elegan -->
+      <div class="p-8 bg-white rounded-3xl">
         <div class="inline-flex items-center border-b w-full border-gray-200 pb-4">
           <p class="text-2xl text-black">Development</p>
         </div>
@@ -29,12 +27,11 @@ import { devwork } from "../../data/education.json";
         </div>
       </div>
       
-      <!-- Education Section -->
-      <div class="p-8 bg-white rounded-3xl"> <!-- Menambah shadow untuk tampilan elegan -->
+      <div class="p-8 bg-white rounded-3xl">
         <div class="inline-flex items-center border-b w-full border-gray-200 pb-4">
           <p class="text-2xl text-black">Education</p>
         </div>
-        <div class="divide-y divide-gray-200 mt-6 space-y-4"> <!-- Menambah space-y-4 untuk jarak antar elemen -->
+        <div class="divide-y divide-gray-200 mt-6 space-y-4"> 
           {
             devwork.map((template) => (
               <div class="text-zinc-700">

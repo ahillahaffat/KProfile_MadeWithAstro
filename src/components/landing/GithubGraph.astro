@@ -1,11 +1,9 @@
-<section id="github-contributions" class="max-w-5xl px-8 py-6 mx-auto">
-  <h2 class="text-lg font-medium text-gray-900 mb-4 tracking-tight">
+<section id="github-contributions" class="max-w-5xl px-4 md:px-8 py-6 mx-auto">
+  <h2 class="text-2xl font-semibold text-gray-900 mb-4 tracking-tight text-center">
     GitHub Contribution Graph
   </h2>
-  <img 
-    src="https://ghchart.rshah.org/ahillahaffat" 
-    alt="GitHub Contribution Graph"
-    class="w-full max-w-5xl xl:max-w-6xl"
-    loading="lazy"
-  />
+  <div class="flex justify-center">
+    <div id="github-calendar" class="w-full"></div>
+  </div>
+  <script type="module" src="/src/scripts/github-calendar.ts"></script>
 </section>

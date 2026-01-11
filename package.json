@@ -22,6 +22,7 @@
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "astro": "^4.15.4",
+    "github-calendar": "^2.3.4",
     "preact": "^10.23.2",
     "tailwind-scrollbar-hide": "^1.1.7"
   },
