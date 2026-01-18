@@ -5,5 +5,16 @@
   <div class="flex justify-center">
     <div id="github-calendar" class="w-full"></div>
   </div>
-  <script type="module" src="/src/scripts/github-calendar.ts"></script>
+  <script src="https://cdn.jsdelivr.net/npm/github-calendar@2.3.4/dist/github-calendar.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // @ts-ignore
+      GitHubCalendar("#github-calendar", "ahillahaffat", {
+        responsive: true,
+        tooltips: true,
+        summary_text: " contributions in the last year",
+        global_stats: true,
+      });
+    });
+  </script>
 </section>
