@@ -3,7 +3,8 @@ export const byName: string[] = [
     "Frontend Dev",
     "Backend Dev",
     "Android Dev",
-    "Machhine Learning Engineer",
+    "Machine Learning Engineer",
+    "Web Peneteration Tester",
     // "Open Graphs",
     // "Social media assets",
   ];
