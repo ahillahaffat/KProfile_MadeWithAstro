@@ -1,0 +1,35 @@
+---
+const certs = [
+  {
+    title: "Junior Web Programmer - BNSP",
+    meta: "(Issued Date: 2025 | Valid: Okt 2028)",
+    description: null,
+  },
+  {
+    title: "Fullstack Developer - Dicoding Indonesia",
+    meta: "(August – December 2023)",
+    description:
+      "Completed Full Stack Developer program covering JavaScript, AWS Cloud fundamentals, CI/CD, and microservices architecture.",
+    link: { label: "Transcript", href: "#" },
+  },
+];
+---
+
+<section class="mb-6">
+  <h2 class="text-sm font-bold uppercase border-b border-zinc-900 mb-2 pb-1">Training and Certification</h2>
+  <ul class="list-disc list-outside pl-5 text-sm space-y-2">
+    {certs.map((cert) => (
+      <li>
+        <span class="font-semibold">{cert.title}</span> {cert.meta}
+        {cert.description && (
+          <p class="italic text-justify mt-0.5">
+            {cert.description}
+            {cert.link && (
+              <> [<a href={cert.link.href} class="underline text-blue-700 not-italic">{cert.link.label}</a>]</>
+            )}
+          </p>
+        )}
+      </li>
+    ))}
+  </ul>
+</section>

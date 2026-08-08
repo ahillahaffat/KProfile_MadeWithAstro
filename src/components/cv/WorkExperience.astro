@@ -1,0 +1,70 @@
+---
+const experiences = [
+//   {
+//     company: "Dinas Komunikasi dan Informatika",
+//     period: "July 2026 – Present",
+//     role: "Full Stack Developer/Expert Staff",
+//     points: [
+//       "Led the end-to-end development of Manunggal Raharja v2, from technical planning and architecture design to SDLC implementation, while transforming a 3,000+ LOC legacy Vue frontend into a modular, composable-based architecture that improved maintainability and development efficiency.",
+//     ],
+//   },
+  {
+    company: "LPPM UPN Veteran Jawa Timur",
+    period: "May 2025 – January 2026",
+    role: "Lecturer Assistant & Product Developer",
+    points: [
+      "Collaborated with Eva Yulia Puspaningrum, M.Kom. on an LPPM-funded project to architect a Flutter-based mobile platform for Titik Batik, successfully transitioning their manual, local-only sales model into a digital-first commerce system that achieved a 100% Acceptability Rating via the System Usability Scale.",
+    ],
+  },
+  {
+    company: "PT Molca Teknologi Nusantara",
+    period: "July – October 2025",
+    role: "Full Stack Developer",
+    points: [
+      "Resolved critical frontend–backend synchronization issues in Speeds Calary Indonesia's e-commerce platform, stabilizing checkout accuracy and contributing to an app rating increase from 2.6 to 3.6 within 2 months.",
+      "Engineered REST APIs for the H7 Ajinomoto OEE digitalization project, converting raw sensor, HMI, and digital twin data into structured production events with near real-time processing (<10s latency), ensuring accurate downtime mapping in the backoffice timeline.",
+    ],
+  },
+  {
+    company: "PT Bimbingan Belajar Himalaya",
+    period: "January - March 2026",
+    role: "UI/X Designer & Web Developer (Freelance)",
+    points: [
+      "Redesigned UI/UX (v2.0) for \"Jadi Juara\" learning app and built Bimbel Himalaya's company profile website, featuring a 9-step SNBP admission probability calculator built as a 5-form wizard that processes report cards, achievements, and school data through a weighted formula with accreditation and alumni-history correction factors.",
+    ],
+  },
+  {
+    company: "PT Bimbingan Belajar Himalaya",
+    period: "August 2024 - March 2025",
+    role: "UI/X Designer & Mobile Developer (Freelance)",
+    points: [
+      "Owned the end-to-end UI/UX design process from wireframes and user flows to high-fidelity prototypes and final UI, featuring implemented an offline-first mobile learning app \"Jadi Juara\", ensuring stable access during network interruptions for 1200+ active students.",
+    ],
+  },
+  {
+    company: "Ministry of Finance of the Republic of Indonesia (Kemenkeu)",
+    period: "February – July 2024",
+    role: "Full Stack Developer (Intern)",
+    points: [
+      "Re-engineered the KPPN Khusus Investasi dashboard on the DIGIT SSO platform to monitor Rp261.53 Trillion in government investments and Rp2.84 Trillion in state revenue, integrating real-time financial metrics such as IKPA (96.81/100) and receivables to enhance data-driven decision-making for high-level stakeholders.",
+      "Developed system modules for U-FinE (UMKM Financing Empowerment) to support KUR access tracking and UMKM assistance program monitoring under the Directorate General of Treasury.",
+    ],
+  },
+];
+---
+
+<section class="mb-6">
+  <h2 class="text-sm font-bold uppercase border-b border-zinc-900 mb-2 pb-1">Working Experience</h2>
+  {experiences.map((exp) => (
+    <div class="mb-3">
+      <div class="flex justify-between text-sm font-bold">
+        <span>{exp.company}</span>
+        <span class="italic font-normal">{exp.period}</span>
+      </div>
+      <p class="text-sm italic mb-1">{exp.role}</p>
+      <ul class="list-disc list-outside pl-5 text-sm text-justify space-y-1">
+        {exp.points.map((point) => <li>{point}</li>)}
+      </ul>
+    </div>
+  ))}
+</section>

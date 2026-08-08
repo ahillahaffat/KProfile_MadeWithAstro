@@ -1,0 +1,34 @@
+---
+const projects = [
+  {
+    title: "Offline-First Android Application for Waste Detection Using YOLO & CRDT",
+    period: "November 2024",
+    points: [
+      "Built an offline-first Android application using SQLite and CRDT-based synchronization, maintaining 95% functionality during network failures, and integrating YOLO-based image detection to classify non-degradable waste, improving inspection efficiency and reducing manual reporting errors.",
+    ],
+    link: { label: "Journal", href: "#" },
+  },
+];
+---
+
+<section class="mb-6">
+  <h2 class="text-sm font-bold uppercase border-b border-zinc-900 mb-2 pb-1">Product & Engineering Projects</h2>
+  {projects.map((proj) => (
+    <div class="mb-3">
+      <div class="flex justify-between text-sm font-bold">
+        <span>{proj.title}</span>
+        <span class="italic font-normal">{proj.period}</span>
+      </div>
+      <ul class="list-disc list-outside pl-5 text-sm text-justify space-y-1">
+        {proj.points.map((point, i) => (
+          <li>
+            {point}
+            {i === proj.points.length - 1 && (
+              <> [<a href={proj.link.href} class="underline text-blue-700 italic">{proj.link.label}</a>]</>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</section>

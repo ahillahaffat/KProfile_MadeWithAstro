@@ -1,4 +1,10 @@
 export const profileImage = {
-  src: "/me.jpg",
-  alt: "Profile photo",
+  nonformal:{
+    src: "/me.jpg",
+    alt: "Profile photo"
+  },
+  formal:{
+    src: "/formal.png",
+    alt: "Formal photo"
+  },
 };

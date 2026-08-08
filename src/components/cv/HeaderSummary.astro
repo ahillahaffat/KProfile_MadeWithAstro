@@ -1,0 +1,41 @@
+---
+import { profileImage } from "@/config/profile-image";
+
+const profile = {
+  name: "AHILLA HAFFAT KAMMALA",
+  location: "Jombang, Indonesia",
+  phone: "+6282233229091",
+  email: "kammala88@gmail.com",
+  links: [
+    { label: "LinkedIn", href: "https://linkedin.com/in/Ahillakammala" },
+    { label: "Portfolio", href: "https://kammala.vercel.app" },
+    { label: "Certificates", href: "#" }, // ganti sesuai link asli
+  ],
+  summary:
+    "Systems-focused and analytical Informatics Engineering graduate with hands-on experience developing digital solutions across government, manufacturing, and MSME sectors. Experienced in backend development and data processing, building APIs and scalable systems for real-world applications. Proven contribution to production-level features and system reliability in practical use cases.",
+};
+---
+
+<section class="flex gap-6 pb-0 mb-6">
+  <img
+    src={profileImage.formal.src}
+    alt={profile.name}
+    class="w-32 aspect-[2/3] object-cover shrink-0"
+  />
+  <div>
+    <h1 class="text-xl font-bold tracking-wide">{profile.name}</h1>
+    <p class="text-sm">
+      {profile.location} | {profile.phone} |
+      <a href={`mailto:${profile.email}`} class="underline text-blue-700">{profile.email}</a>
+    </p>
+    <p class="text-sm mb-3">
+      {profile.links.map((link, i) => (
+        <>
+          <a href={link.href} class="underline text-blue-700" target="_blank">{link.label}</a>
+          {i < profile.links.length - 1 && " | "}
+        </>
+      ))}
+    </p>
+    <p class="text-sm text-justify leading-relaxed">{profile.summary}</p>
+  </div>
+</section>
