@@ -12,12 +12,14 @@ import AppSidebar from "@/components/global/Sidebar.astro";
   </head>
   <body class="bg-background mx-auto 2xl:max-w-screen-xl relative h-screen overflow-hidden">
     <div class="flex h-full">
-      <aside class="hidden lg:flex lg:flex-col w-[380px] shrink-0 h-full overflow-y-auto border-r border-zinc-200 bg-zinc-50">
+      <aside class="hidden md:flex lg:flex lg:flex-col w-[380px] shrink-0 h-full touch-pan-y overflow-x-hidden overflow-y-auto overscroll-contain border-r border-zinc-200 bg-zinc-50">
         <AppSidebar />
       </aside>
 
-      <div class="flex-1 h-full overflow-y-auto">
+      <div class="min-w-0 flex-1 h-full overflow-y-auto relative">
+        <div class="absolute top-0 left-0 right-0 z-50 md:hidden">
         <Navigation/>
+        </div>
         <main><slot /></main>
         <Footer/>
       </div>

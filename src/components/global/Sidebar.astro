@@ -20,65 +20,75 @@ const menu = [
 ---
 
 <aside class="hidden lg:flex lg:flex-col w-[380px] shrink-0 h-full overflow-y-auto border-r border-zinc-200 bg-zinc-50">
-  <Sidebar collapsible="none" class="w-full h-full flex flex-col justify-between">
+  <Sidebar collapsible="none" class="w-full h-full shrink-0 overflow-x-hidden flex flex-col justify-between">
 
     <SidebarHeader class="p-8 pb-0">
-      <img
-        src={profileImage.src}
-        alt={profileImage.alt}
-        class="w-14 h-14 rounded-full object-cover mb-6"
-      />
+  <img
+    src={profileImage.src}
+    alt={profileImage.alt}
+    class="mb-6 h-14 w-14 rounded-full object-cover"
+  />
 
-      <h1 class="text-3xl font-serif leading-tight mb-4 text-zinc-900">
-        Hey! I'm Ahilla.<br />
-      </h1>
+  <h1 class="mb-4 font-serif text-3xl leading-tight text-zinc-900">
+    Hey! I'm Ahilla.
+  </h1>
 
-      <p class="text-zinc-500 text-sm mb-6 leading-relaxed">
-        2 years of experience working in government, startups, and smart manufacturing.
-      </p>
+  <p class="mb-6 text-sm leading-relaxed text-zinc-500">
+    Software Engineer with 2 years of experience working in government,
+    startups, and smart manufacturing.
+  </p>
 
-      <button
-        id="copy-email"
-        type="button"
-        class="bg-black text-white rounded-full px-5 py-2.5 text-sm font-medium hover:bg-zinc-800 transition mb-4"
+  <button
+    id="copy-email"
+    type="button"
+    class="mb-4 rounded-full bg-black px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800"
+  >
+    Copy my email
+  </button>
+
+  <div class="mb-2 flex items-center gap-2 text-sm text-zinc-600">
+    <span class="relative flex size-2">
+      <span
+        class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+      ></span>
+
+      <span class="relative inline-flex size-2 rounded-full bg-emerald-500"></span>
+    </span>
+
+    Available for work
+  </div>
+</SidebarHeader>
+
+<!-- MENU -->
+<div class="mt-auto px-8">
+  <SidebarContent class="p-0">
+    <SidebarGroup class="p-0">
+      <SidebarGroupLabel
+        class="mb-2 px-0 text-xs uppercase tracking-wide text-zinc-400"
       >
-        Copy my email
-      </button>
+        Menu
+      </SidebarGroupLabel>
 
-      <div class="flex items-center gap-2 text-sm text-zinc-600 mb-2">
-        <span class="relative flex size-2">
-          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex size-2 rounded-full bg-emerald-500"></span>
-        </span>
-        Available for work
-      </div>
-    </SidebarHeader>
+      <SidebarMenu class="gap-1">
+        {menu.map((item) => (
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              as="a"
+              href={item.href}
+              class="h-auto px-0 py-1.5 text-sm font-normal text-zinc-500 hover:bg-transparent hover:text-zinc-900"
+            >
+              <span>{item.label}</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        ))}
+      </SidebarMenu>
+    </SidebarGroup>
+  </SidebarContent>
+</div>
 
-    <!-- CONTENT: nav menu -->
-    <SidebarContent class="px-8">
-      <SidebarGroup class="p-0">
-        <SidebarGroupLabel class="px-0 text-xs uppercase tracking-wide text-zinc-400 mb-2">
-          Menu
-        </SidebarGroupLabel>
-
-        <SidebarMenu class="gap-1">
-          {menu.map((item) => (
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                as="a"
-                href={item.href}
-                class="text-sm text-zinc-500 hover:text-zinc-900 hover:bg-transparent px-0 h-auto py-1.5 font-normal"
-              >
-                <span>{item.label}</span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
-        </SidebarMenu>
-      </SidebarGroup>
-    </SidebarContent>
-
-    <SidebarFooter class="p-8 pt-0">
-    </SidebarFooter>
+<!-- FOOTER -->
+<SidebarFooter class="p-8 pt-6">
+</SidebarFooter>
 
   </Sidebar>
 </aside>
@@ -86,7 +96,7 @@ const menu = [
 <script>
   const btn = document.getElementById("copy-email");
   btn?.addEventListener("click", () => {
-    navigator.clipboard.writeText("hello@ahillahaffat.com");
+    navigator.clipboard.writeText("kammala88@gmail.com");
     const original = btn.textContent;
     btn.textContent = "Copied!";
     setTimeout(() => (btn.textContent = original), 2000);
