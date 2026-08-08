@@ -3,17 +3,24 @@ import BaseHead from "@/components/BaseHead.astro";
 import Navigation from "@/components/global/Navigation.astro"
 import Footer from "@/components/global/Footer.astro"
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import AppSidebar from "@/components/global/Sidebar.astro";
 ---
 
 <html lang="en" class="scroll-smooth selection:bg-black selection:text-white">
   <head>
     <BaseHead />
   </head>
-  <body class="bg-zinc-100 flex flex-col min-h-screen mx-auto 2xl:max-w-screen-xl relative">
+  <body class="bg-background mx-auto 2xl:max-w-screen-xl relative h-screen overflow-hidden">
+    <div class="flex h-full">
+      <aside class="hidden lg:flex lg:flex-col w-[380px] shrink-0 h-full overflow-y-auto border-r border-zinc-200 bg-zinc-50">
+        <AppSidebar />
+      </aside>
 
-    <Navigation/>
-    <main class="flex-grow"><slot /></main>
-    <Footer/>
-
+      <div class="flex-1 h-full overflow-y-auto">
+        <Navigation/>
+        <main><slot /></main>
+        <Footer/>
+      </div>
+    </div>
   </body>
 </html>

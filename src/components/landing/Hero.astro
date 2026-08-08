@@ -1,3 +1,7 @@
+---
+import { profileImage } from "@/config/profile-image";
+---
+
 <section class="overflow-hidden relative">
   <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1340 241" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="..." fill="black" />
@@ -8,8 +12,8 @@
       <div class="w-full" style="aspect-ratio: 4 / 3;">
         <img
           class="rounded-lg shadow-lg w-full h-full object-cover mt-11 md:mt-10"
-          src="/fotoahil.jpg"
-          alt="Keuangan Blog"
+          src={profileImage.src}
+          alt={profileImage.alt}
         />
       </div>
     </div>
