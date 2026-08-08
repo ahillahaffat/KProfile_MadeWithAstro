@@ -1,18 +1,115 @@
 ---
-import type { HTMLAttributes } from "astro/types"
 
+import type { HTMLAttributes } from "astro/types"
 import { cn } from "@/lib/utils"
+import { imagesCompany } from "@/config/company-images"
 
 type Props = HTMLAttributes<"div">
 
 const { class: className, ...props } = Astro.props
+
+const logos = [
+imagesCompany.if,
+imagesCompany.molca,
+imagesCompany.kemenkeu,
+imagesCompany.dicoding,
+]
 ---
 
-<div
+<footer
   data-slot="sidebar-footer"
-  data-sidebar="footer"
-  class={cn("flex flex-col gap-2 p-2", className)}
+  class={cn("p-8 pt-0", className)}
   {...props}
 >
-  <slot />
+  <div class="logo-marquee mb-6">
+    <div class="logo-marquee-track">
+      {logos.map((logo) => (
+        <div
+          class="logo-item w-10 h-10 rounded-lg bg-white border border-zinc-200 flex items-center justify-center overflow-hidden shrink-0"
+        >
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            class="w-6 h-6 object-contain"
+            draggable="false"
+          />
+        </div>
+      ))}
+
+
+  {logos.map((logo) => (
+    <div
+      class="logo-item w-10 h-10 rounded-lg bg-white border border-zinc-200 flex items-center justify-center overflow-hidden shrink-0"
+      aria-hidden="true"
+    >
+      <img
+        src={logo.src}
+        alt=""
+        class="w-6 h-6 object-contain"
+        draggable="false"
+      />
+    </div>
+  ))}
 </div>
+  </div>
+
+
+  <div
+    class="flex items-center justify-between text-xs text-zinc-500 border-t border-zinc-200 pt-4"
+  >
+    <span>© {new Date().getFullYear()}</span>
+<a
+  href="https://linkedin.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="hover:text-black transition"
+>
+  <i class="fa-brands fa-linkedin"></i>
+</a>
+
+<span>hello@ahillahaffat.com</span>
+
+
+  </div>
+</footer>
+
+<style>
+  .logo-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .logo-marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+    animation: logo-scroll 18s linear infinite;
+    will-change: transform;
+  }
+
+  .logo-item {
+    flex: 0 0 auto;
+  }
+
+  @keyframes logo-scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-50% - 5px));
+    }
+  }
+
+  .logo-marquee:hover .logo-marquee-track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee-track {
+      animation: none;
+    }
+  }
+</style>
