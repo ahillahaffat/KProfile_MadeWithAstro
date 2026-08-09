@@ -1,5 +1,4 @@
 ---
-
 import type { HTMLAttributes } from "astro/types"
 import { cn } from "@/lib/utils"
 import { imagesCompany } from "@/config/company-images"
@@ -9,10 +8,10 @@ type Props = HTMLAttributes<"div">
 const { class: className, ...props } = Astro.props
 
 const logos = [
-imagesCompany.if,
-imagesCompany.molca,
-imagesCompany.kemenkeu,
-imagesCompany.dicoding,
+  imagesCompany.if,
+  imagesCompany.molca,
+  imagesCompany.kemenkeu,
+  imagesCompany.dicoding,
 ]
 ---
 
@@ -21,72 +20,130 @@ imagesCompany.dicoding,
   class={cn("p-8 pt-0", className)}
   {...props}
 >
-  <div class="logo-marquee mb-6">
+  <div class="logo-marquee mb-6" id="marqueeScroll">
     <div class="logo-marquee-track">
       {logos.map((logo) => (
         <div
-          class="logo-item w-10 h-10 rounded-lg bg-white border border-zinc-200 flex items-center justify-center overflow-hidden shrink-0"
+          class="logo-item w-16 h-16 rounded-xl bg-white border border-zinc-200 flex items-center justify-center overflow-hidden shrink-0 shadow-sm"
         >
           <img
             src={logo.src}
-            alt={logo.alt}
-            class="w-6 h-6 object-contain"
+            alt={logo.alt || ""}
+            class="w-10 h-10 object-contain pointer-events-none"
             draggable="false"
           />
         </div>
       ))}
 
-
-  {logos.map((logo) => (
-    <div
-      class="logo-item w-10 h-10 rounded-lg bg-white border border-zinc-200 flex items-center justify-center overflow-hidden shrink-0"
-      aria-hidden="true"
-    >
-      <img
-        src={logo.src}
-        alt=""
-        class="w-6 h-6 object-contain"
-        draggable="false"
-      />
+      {logos.map((logo) => (
+        <div
+          class="logo-item w-16 h-16 rounded-xl bg-white border border-zinc-200 flex items-center justify-center overflow-hidden shrink-0 shadow-sm"
+          aria-hidden="true"
+        >
+          <img
+            src={logo.src}
+            alt=""
+            class="w-10 h-10 object-contain pointer-events-none"
+            draggable="false"
+          />
+        </div>
+      ))}
     </div>
-  ))}
-</div>
   </div>
-
 
   <div
-    class="flex items-center justify-between text-xs text-zinc-500 border-t border-zinc-200 pt-4"
+    class="flex items-center justify-between border-t border-zinc-200 pt-4"
   >
-    <span>© {new Date().getFullYear()}</span>
-<a
-  href="https://linkedin.com/ahillakammala"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="hover:text-black transition"
->
-  <i class="fa-brands fa-linkedin min-height:auto"></i>
-</a>
 
-<span>kammala88@gmail.com</span>
-
-
+    <div class="flex items-center gap-3 text-zinc-500 text-sm">
+      <a
+        href="https://github.com/ahillahaffat"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-black transition"
+        aria-label="GitHub"
+      >
+        <i class="fab fa-github"></i>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/ahillakammala/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-black transition"
+        aria-label="LinkedIn"
+      >
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a
+        href="mailto:kammala88@gmail.com"
+        class="hover:text-black transition"
+        aria-label="Email"
+      >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
   </div>
 </footer>
+
+<script>
+  const slider = document.getElementById('marqueeScroll');
+  let isDown = false;
+  let startX: number;
+  let scrollLeft: number;
+
+  if (slider) {
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  }
+</script>
 
 <style>
   .logo-marquee {
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
     position: relative;
+    cursor: grab;
+    user-select: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .logo-marquee::-webkit-scrollbar {
+    display: none;
+  }
+
+  .logo-marquee.active {
+    cursor: grabbing;
   }
 
   .logo-marquee-track {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
     width: max-content;
-    animation: logo-scroll 18s linear infinite;
-    will-change: transform;
+    animation: logo-scroll 12s linear infinite;
   }
 
   .logo-item {
@@ -94,16 +151,16 @@ imagesCompany.dicoding,
   }
 
   @keyframes logo-scroll {
-    from {
+    0% {
       transform: translateX(0);
     }
-
-    to {
-      transform: translateX(calc(-50% - 5px));
+    100% {
+      transform: translateX(-50%);
     }
   }
 
-  .logo-marquee:hover .logo-marquee-track {
+  .logo-marquee:hover .logo-marquee-track,
+  .logo-marquee.active .logo-marquee-track {
     animation-play-state: paused;
   }
 
