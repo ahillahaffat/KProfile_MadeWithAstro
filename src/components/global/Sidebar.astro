@@ -23,15 +23,25 @@ const menu = [
   <Sidebar collapsible="none" class="w-full h-full shrink-0 overflow-x-hidden flex flex-col justify-between">
 
     <SidebarHeader class="p-8 pb-0">
+ <a
+  href="/"
+  aria-label="Back to homepage"
+  class="mb-6 inline-block w-fit"
+>
   <img
     src={profileImage.nonformal.src}
     alt={profileImage.nonformal.alt}
-    class="mb-6 h-14 w-14 rounded-full object-cover"
+    class="h-14 w-14 rounded-full object-cover transition-opacity duration-200 hover:opacity-80"
   />
+</a>
 
-  <h1 class="mb-4 font-serif text-3xl leading-tight text-zinc-900">
+<a href="/" class="group">
+  <h1
+    class="mb-4 font-serif text-3xl leading-tight text-zinc-900 transition-colors group-hover:text-zinc-600"
+  >
     Hey! I'm Kammala.
   </h1>
+</a>
 
   <p class="mb-6 text-sm leading-relaxed text-zinc-500">
     Software Engineer with 2 years of experience working in government,
