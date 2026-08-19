@@ -1,0 +1,21 @@
+---
+import { research } from "@/data/research";
+---
+
+<section class="mb-6">
+  <h2 class="text-sm font-bold uppercase border-b border-zinc-900 mb-2 pb-1">Security Research</h2>
+  <div class="flex justify-between text-sm font-bold">
+    <span>{research.role}</span>
+    <span class="italic font-normal">{research.period}</span>
+  </div>
+  <ul class="list-disc list-outside pl-5 text-sm text-justify space-y-1">
+    {research.points.map((point, i) => (
+      <li>
+        {point}
+        {i === research.points.length - 1 && (
+          <> [<a href={research.link.href} class="underline text-blue-700 italic">{research.link.label}</a>]</>
+        )}
+      </li>
+    ))}
+  </ul>
+</section>

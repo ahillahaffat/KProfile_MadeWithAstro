@@ -1,0 +1,22 @@
+---
+import { certs } from "@/data/certification";
+---
+
+<section class="mb-6">
+  <h2 class="text-sm font-bold uppercase border-b border-zinc-900 mb-2 pb-1">Training and Certification</h2>
+  <ul class="list-disc list-outside pl-5 text-sm space-y-2">
+    {certs.map((cert) => (
+      <li>
+        <span class="font-semibold">{cert.title}</span> {cert.meta}
+        {cert.description && (
+          <p class="italic text-justify mt-0.5">
+            {cert.description}
+            {cert.link && (
+              <> [<a href={cert.link.href} class="underline text-blue-700 not-italic">{cert.link.label}</a>]</>
+            )}
+          </p>
+        )}
+      </li>
+    ))}
+  </ul>
+</section>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import HeaderSummary from "@/components/cv/HeaderSummary.astro";
+import Education from "@/components/cv/Education.astro";
+import WorkExperience from "@/components/cv/WorkExperience.astro";
+import SecurityResearch from "@/components/cv/SecurityResearch.astro";
+import IndependentProduct from "@/components/cv/IndependentProduct.astro";
+import Certification from "@/components/cv/Certification.astro";
+import ToolsSkills from "@/components/cv/ToolsSkills.astro";
+---
+
+<BaseLayout>
+  <div
+    class="mx-auto max-w-4xl px-6 py-12 text-zinc-900 [font-family:'Times_New_Roman',Times,serif]"
+    >
+    <HeaderSummary />
+    <Education />
+    <WorkExperience />
+    <SecurityResearch />
+    <IndependentProduct />
+    <Certification />
+    <ToolsSkills />
+  </div>
+</BaseLayout>

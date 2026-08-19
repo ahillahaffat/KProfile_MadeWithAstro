@@ -1,0 +1,21 @@
+---
+const skills = [
+  { label: "Programming Language", value: "JavaScript, TypeScript, Go, Java, PHP, C++, Python." },
+  { label: "Software Development Tools", value: "JavaScript Framework (Nuxt.Js, Vue.Js, Next.Js), Laravel, Flutter, Kotlin, Go Fiber, TS Hono, Express, SQL, NoSQL, Docker, Github Actions, Kubernetes, K6, Sentry." },
+  { label: "Cybersecurity Tools", value: "Kali Linux, Burp Suite, subfinder, sqlmap, OSINT Techniques." },
+  { label: "Operating System", value: "Ubuntu, Kali Linux." },
+  { label: "Design Tools", value: "Figma, Adobe Illustrator, Adobe Photoshop." },
+  { label: "Collaboration Tools", value: "Zoom, Github, Gitlab, Google Space, Jira, Clickup." },
+  { label: "Product & Project Skills", value: "End to end SDLC involvement, feature planning and delivery coordination, troubleshooting and production issue handling." },
+  { label: "Languages", value: "Indonesian (Fluent), English (Professional)" },
+];
+---
+
+<section>
+  <h2 class="text-sm font-bold uppercase border-b border-zinc-900 mb-2 pb-1">Tools and Skills</h2>
+  <ul class="list-disc list-outside pl-5 text-sm space-y-1">
+    {skills.map((skill) => (
+      <li><span class="font-semibold">{skill.label}</span> : {skill.value}</li>
+    ))}
+  </ul>
+</section>
